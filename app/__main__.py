@@ -37,7 +37,6 @@ logging.basicConfig(
 
 
 def main():
-    ldb.create_db()
     bot.run()
 
 
