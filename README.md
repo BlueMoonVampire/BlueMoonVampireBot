@@ -17,6 +17,7 @@
     [-] SYL_TOKEN: Get from @BlueMoonVampireBot Only Dev
     [-] DEVS: Enter Dev Id
     [-] LOGS: Log Channel Id
+    [-] REPORT_LOGS: Log Report Channel Id
 ```
 
 # Deploy 
@@ -31,3 +32,5 @@
 # Inspiration 
 <a href="https://github.com/MinistryOfWelfare"><img src="https://img.shields.io/badge/SibylSystem-red.svg?logo=Github"></a>
 <a href="https://github.com/SpamWatch"><img src="https://img.shields.io/badge/SpamWatch-red.svg?logo=Github"></a>
+
+## © Copyright - Sylviorus ( Nksama & Moezilla )
