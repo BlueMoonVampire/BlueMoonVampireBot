@@ -13,11 +13,12 @@
     [-] APP_ID:   You can get this value from https://my.telegram.org
     [-] APP_HASH :   You can get this value from https://my.telegram.org
     [-] MONGO_URI : Your Mongo DB DataBase Url. .
-    [-] BOT_TOKEN: Get from botfarther
+    [-] SESSION: Get YOUR ID SESSION
     [-] SYL_TOKEN: Get from @BlueMoonVampireBot Only Dev
     [-] DEVS: Enter Dev Id
     [-] LOGS: Log Channel Id
     [-] REPORT_LOGS: Log Report Channel Id
+    [-] GBAN_LOGS: Log GBAN group Id
 ```
 
 # Deploy 
