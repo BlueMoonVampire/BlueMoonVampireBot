@@ -34,7 +34,6 @@ HELP_TEXT = """
 
 /start - __Start Mesasage__
 /help - __Help Message__
-/check userid or reply to user - __Check User__
 /setrole - __Roles Name__
 /sylreport - __Report Message__
 
@@ -49,9 +48,4 @@ HELP_TEXT = """
 
 @bot.on_message(filters.command("help", ['/', ".", "?"]))
 async def help(bot, m):
-    await m.reply(HELP_TEXT,
-                  parse_mode="markdown",
-                  reply_markup=InlineKeyboardButton([[
-                      InlineKeyboardButton(
-                          "Support", url="https://t.me/sylviorus_support")
-                  ]]))
+    await m.reply(HELP_TEXT)
