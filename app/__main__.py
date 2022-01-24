@@ -21,6 +21,7 @@ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
 """
 
+
 from . import bot
 from . import app
 import logging
@@ -37,6 +38,7 @@ logging.basicConfig(
 
 
 def main():
+    ldb.create_db()
     bot.run()
 
 
