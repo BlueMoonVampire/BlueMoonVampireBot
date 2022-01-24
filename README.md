@@ -2,7 +2,7 @@
 
 
 # Blue Moon Vampire Bot
-> An Telegram Antispam Based Bot .
+> An Telegram Antispam Based Bot 
 
 ## A Pyogram Bot to make banned, report easy 
 > Based Sylviorus Api
@@ -19,6 +19,9 @@
     [-] LOGS: Log Channel Id
     [-] REPORT_LOGS: Log Report Channel Id
 ```
+
+# Scanner Repo
+<a href="https://github.com/Sylviorus/BlueMoonVampireBot/tree/Scanner"><img src="https://img.shields.io/badge/ScannerRepo-red.svg?logo=Github"></a>
 
 # Deploy 
 [![Deploy](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy?template=https://github.com/sylviorus/BlueMoonVampireBot.git)
