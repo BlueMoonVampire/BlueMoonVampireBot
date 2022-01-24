@@ -32,5 +32,5 @@ bot = Client("Sylviorus",
              plugins=dict(root="{}/plugins".format(__name__)))
 
 
-
+ldb = LocalDb("reasons")
 SYL = Sylviorus(SYLTOKEN)
