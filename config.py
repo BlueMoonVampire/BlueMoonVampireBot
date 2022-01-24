@@ -23,11 +23,11 @@ SOFTWARE.
 
 API_ID = "123"
 API_HASH = "123"
-BOT_TOKEN = "123"
-SLYTOKEN = "123"
+SESSION = "123"
 MONGO_URI = "mongo db url"
 REPORT_LOGS = "report log channel"
 LOGS = "log channel id"
+GBAN_LOG = "gban log group id"
 DEV = [
  825664681, 5086015489
 ]
