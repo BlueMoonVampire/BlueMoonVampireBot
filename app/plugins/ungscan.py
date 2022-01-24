@@ -52,16 +52,12 @@ async def ungscan(bot: Client, m: Message):
         await m.reply("Unbanning....")
         for x in users:
             try:
-                SYL.unban(x)
-                buttons = [[
-                    InlineKeyboardButton("Support",
-                                         url="https://t.me/Sylviorus_support"),
-                ],
-                           [
-                               InlineKeyboardButton(
-                                   "Report",
-                                   url="https://t.me/SylviorusReport"),
-                           ]]
+                await bot.send_message(
+                    LOGS,
+                    f"""/ungban {x}""")
+                await bot.send_message(
+                    LOGS,
+                    f"""/unfban {x}""")
                 await bot.send_message(
                     LOGS,
                     f"""
@@ -70,8 +66,7 @@ async def ungscan(bot: Client, m: Message):
 **USER** : [{x}](tg://user?id={x})
 **ENFORCER** : [{m.from_user.id}](tg://user?id={m.from_user.id})
 **CHAT_ID** : {m.chat.id}
-""",
-                    reply_markup=InlineKeyboardMarkup(buttons))
+""")                 
                 time.sleep(1)
             except Exception as e:
                 await i.edit(f"{e}")
