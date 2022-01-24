@@ -23,7 +23,7 @@ SOFTWARE.
 
 from app import bot, SYL
 from app import app
-from config import DEVS, LOGS
+from config import DEVS, LOGS, GBAN_LOGS
 from app.utils import check_dev
 from pyrogram.types import Message
 from pyrogram.types import InlineKeyboardButton, InlineKeyboardMarkup
@@ -53,17 +53,11 @@ async def unban(bot: Client, m: Message):
     if m.from_user.id in DEVS and m.reply_to_message:
         user = m.reply_to_message.from_user.id
         if not user in DEVS:
-            user = int(user)
-            x = SYL.unban(user)
-            buttons = [[
-                InlineKeyboardButton("Support",
-                                     url="https://t.me/Sylviorus_support"),
-            ],
-                       [
-                           InlineKeyboardButton(
-                               "Report", url="https://t.me/SylviorusReport"),
-                       ]]
-
+            user = int(user)          
+            await bot.send_message(GBAN_LOGS,
+                                   f"""/ungban {user}"""
+            await bot.send_message(GBAN_LOGS,
+                                   f"""/unfban {user}"""
             await bot.send_message(LOGS,
                                    f"""
 #UNBANNED
@@ -71,9 +65,6 @@ async def unban(bot: Client, m: Message):
 **USER** : [{user}](tg://user?id={user})
 **ENFORCER** : [{m.from_user.id}](tg://user?id={m.from_user.id})
 **CHAT_ID** : {m.chat.id}
-""",
-                                   reply_markup=InlineKeyboardMarkup(buttons))
-            await m.reply(x)
-
+""")
         else:
             await m.reply("Captain Cant Be Unbanned!")
