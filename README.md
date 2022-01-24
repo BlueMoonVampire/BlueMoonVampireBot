@@ -4,7 +4,7 @@
 # Blue Moon Vampire Bot
 > An Telegram Antispam Based Bot .
 
-## A Pyogram UserBot to make banned, report easy 
+## A Pyogram Bot to make banned, report easy 
 > Based Sylviorus Api
 
 ## Installing Vars 
