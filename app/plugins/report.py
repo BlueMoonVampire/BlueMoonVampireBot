@@ -45,13 +45,6 @@ def report(_, m: Message):
             reason = m.text.replace(m.text.split(" ")[0], "")
             x = m.reply_to_message.forward(-1001774528355)
             enforcer = m.from_user.id
-            keyb = []
-            keyb.append([
-                InlineKeyboardButton("BAN",
-                                     callback_data=f"bam:accept:{user}:"),
-                InlineKeyboardButton("UNBAN",
-                                     callback_data=f"bam:reject:{user}")
-            ])
             ldb.add_reason(user, reason)
             bot.send_message(REPORT_LOGS,
                              f"""
@@ -62,62 +55,9 @@ def report(_, m: Message):
     **Message** : {m.reply_to_message.text}
     **Chat Username** : {m.chat.username}
     **Reason** : {reason}
-    """,
-                             reply_markup=InlineKeyboardMarkup(keyb))
-
+    """)
     except Exception as e:
         m.reply(f"{e}")
 
     if m.reply_to_message.from_user.id in DEVS:
         m.reply("Vampire of the Blue moon Cant Be Reported!")
-
-
-@bot.on_callback_query(filters.regex(r'bam'))
-def bam_callback(_, query: CallbackQuery):
-    data = query.data.split(":")
-    if data[1] == "accept" and query.from_user.id in DEVS:
-        user = int(data[2])
-        msg = ldb.get_reason(str(user))
-        SYL.ban(user, msg, query.from_user.id)
-        buttons = [[
-            InlineKeyboardButton("Support",
-                                 url="https://t.me/Sylviorus_support"),
-        ],
-                   [
-                       InlineKeyboardButton(
-                           "Report", url="https://t.me/SylviorusReport"),
-                   ]]
-        bot.send_message(LOGS,
-                         f"""
-#BANNED
-
-**USER** : [{user}](tg://user?id={user})
-**ENFORCER** : [{query.from_user.id}](tg://user?id={query.from_user.id})
-**REASON** : {msg}
-**CHAT_ID** : {query.message.chat.id}
-""",
-                         reply_markup=InlineKeyboardMarkup(buttons))
-
-    elif data[1] == "reject" and query.from_user.id in DEVS:
-        user = int(data[2])
-        buttons = [[
-            InlineKeyboardButton("Support",
-                                 url="https://t.me/Sylviorus_support"),
-        ],
-                   [
-                       InlineKeyboardButton(
-                           "Report", url="https://t.me/SylviorusReport"),
-                   ]]
-        SYL.unban(user)       
-        bot.send_message(LOGS,
-                         f"""
-#UNBANNED
-
-**USER** : [{user}](tg://user?id={user})
-**ENFORCER** : [{query.from_user.id}](tg://user?id={query.from_user.id})
-**CHAT_ID** : {query.message.chat.id}
-""",
-                         reply_markup=InlineKeyboardMarkup(buttons))
-
-    if not query.from_user.id in DEVS:
-        query.answer("You are not Vampire of The Blue Moon")
