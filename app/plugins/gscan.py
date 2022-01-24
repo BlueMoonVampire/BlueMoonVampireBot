@@ -50,17 +50,12 @@ async def gscan(bot: Client, m: Message):
         await m.reply("Banning....")
         for x in users:
             try:
-                SYL.ban(x, "Mass Adder MSG_ID : {}".format(m.message_id),
-                        m.from_user.id)
-                buttons = [[
-                    InlineKeyboardButton("Support",
-                                         url="https://t.me/Sylviorus_support"),
-                ],
-                           [
-                               InlineKeyboardButton(
-                                   "Report",
-                                   url="https://t.me/SylviorusReport"),
-                           ]]
+                await bot.send_message(
+                    GBAN_LOGS,
+                    f"""/fban {x} MASS ADDING For @{grp} //by m.from_user.id"""
+                await bot.send_message(
+                    GBAN_LOGS,
+                    f"""/gban {x} MASS ADDING For @{grp} //by m.from_user.id""")
                 await bot.send_message(
                     LOGS,
                     f"""
@@ -70,8 +65,8 @@ async def gscan(bot: Client, m: Message):
 **REASON**: MASS ADDING For @{grp}
 **ENFORCER** : [{m.from_user.id}](tg://user?id={m.from_user.id})
 **CHAT_ID** : {m.chat.id}
-""",
-                    reply_markup=InlineKeyboardMarkup(buttons))
+""")
+
                 time.sleep(1)
             except Exception as e:
                 await i.edit(f"{e}")
