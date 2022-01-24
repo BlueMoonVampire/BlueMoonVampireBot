@@ -24,7 +24,6 @@ SOFTWARE.
 from pyrogram import Client
 from config import API_ID, API_HASH, BOT_TOKEN, SYLTOKEN
 from .utils import Sylviorus
-from .db import LocalDb
 
 bot = Client("Sylviorus",
              api_id=API_ID,
@@ -33,5 +32,5 @@ bot = Client("Sylviorus",
              plugins=dict(root="{}/plugins".format(__name__)))
 
 
-ldb = LocalDb("reasons")
+
 SYL = Sylviorus(SYLTOKEN)
