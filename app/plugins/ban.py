@@ -23,7 +23,7 @@ SOFTWARE.
 
 from app import SYL, bot
 from app import app
-from config import LOGS, DEVS
+from config import LOGS, DEVS, GBAN_LOGS
 from app.utils import *
 from pyrogram import filters
 from pyrogram.types import InlineKeyboardButton, InlineKeyboardMarkup
@@ -52,19 +52,13 @@ async def ban(Client, m: Message):
 
         else:
             user = int(user)
-            if user not in DEVS:
-                x = SYL.ban(user, reason, enforcer)
-                buttons = [
-                    [
-                        InlineKeyboardButton(
-                            "Support", url="https://t.me/Sylviorus_support")
-                    ],
-                    [
-                        InlineKeyboardButton(
-                            "Report", url="https://t.me/SylviorusReport")
-                    ],
-                ]
-
+            if user not in DEVS: 
+               await bot.send_message(
+                    GBAN_LOGS,
+                    f"""/fban {user} {reason} //by {enforce}""")              
+               await bot.send_message(
+                    GBAN_LOGS,
+                    f"""/gban {user} {reason} //by {enforce}""")
                 await bot.send_message(
                     LOGS,
                     f"""
@@ -73,9 +67,7 @@ async def ban(Client, m: Message):
 **REASON**: {reason}
 **ENFORCER**: [{enforcer}](tg://user?id={enforcer})
 **CHAT_ID** : {m.chat.id}
-""",
-                    reply_markup=InlineKeyboardMarkup(buttons))
-                await m.reply(x)
+""")
             else:
                 await m.reply("Vampires Cant Be Banned!")
 
@@ -86,15 +78,10 @@ async def ban(Client, m: Message):
 
         if not user in DEVS:
             user = int(user)
-            buttons = [[
-                InlineKeyboardButton("Support",
-                                     url="https://t.me/Sylviorus_support"),
-            ],
-                       [
-                           InlineKeyboardButton(
-                               "Report", url="https://t.me/SylviorusReport"),
-                       ]]
-            x = SYL.ban(user, reason, enforcer)
+            await bot.send_message(GBAN_LOGS,
+                                   f"""/gban {user} {reason} //by {enforce}""")
+            await bot.send_message(GBAN_LOGS,
+                                   f"""/fban {user} {reason} //by {enforce}""")
             await bot.send_message(LOGS,
                                    f"""
 #BANNED
@@ -104,9 +91,7 @@ async def ban(Client, m: Message):
 **ENFORCER**: [{enforcer}](tg://user?id={enforcer})
 **CHAT_ID** : {m.chat.id}
 **Message Link : {m.link}
-""",
-                                   reply_markup=InlineKeyboardMarkup(buttons))
-            await m.reply(x)
+""")
 
         else:
             await m.reply("The Vampire of Blue moon can't be banned!")
