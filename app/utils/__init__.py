@@ -1,4 +1,5 @@
 from requests import get, post
+from config import DEV, LOGS
 # from .. import LOGS
 
 
