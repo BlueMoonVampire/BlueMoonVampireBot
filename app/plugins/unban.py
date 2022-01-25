@@ -22,7 +22,6 @@ SOFTWARE.
 """
 
 from app import bot, SYL
-from app import app
 from config import DEVS, LOGS
 from app.utils import check_dev
 from pyrogram.types import Message
