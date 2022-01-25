@@ -22,7 +22,6 @@ SOFTWARE.
 """
 
 from app import SYL, bot
-from app import app
 from config import DEVS, LOGS
 from app.utils import *
 from pyrogram import filters
