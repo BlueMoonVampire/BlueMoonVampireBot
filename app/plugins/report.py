@@ -27,7 +27,7 @@ from pyrogram.types import Message, InlineKeyboardButton, InlineKeyboardMarkup, 
 from ..utils import *
 from config import DEVS, REPORT_LOGS
 from requests import post, get
-from .. import bot, SYL, ldb, app
+from .. import bot, SYL, ldb
 
 
 def paste(text):
