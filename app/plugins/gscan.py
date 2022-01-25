@@ -22,7 +22,6 @@ SOFTWARE.
 """
 
 from app import SYL, bot
-from app import app
 from app.utils import *
 from config import DEVS, LOGS, GBAN_LOGS
 from pyrogram import filters
