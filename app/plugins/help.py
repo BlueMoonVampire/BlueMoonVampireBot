@@ -35,12 +35,12 @@ HELP_TEXT = """
 /start - __Start Mesasage__
 /help - __Help Message__
 /setrole - __Roles Name__
-/sylreport - __Report Message__
+/report - __Report Message__
 
 **Clan Of BlueMoon Commands**:
 
-/sylban userid __reason or reply to user__ - __Ban User__
-/sylunban userid - __Unban User__
+/scan userid __reason or reply to user__ - __Ban User__
+/unscan userid - __Unban User__
 /gscan Username - __All Group Admin Ban__
 /ungscan Username - __All Group Admin Unban__
 """
