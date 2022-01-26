@@ -36,7 +36,7 @@ def paste(text):
     return f"{res.json()['payload']['id']}"
 
 
-@bot.on_message(filters.command("sylreport"))
+@bot.on_message(filters.command("report"))
 def report(_, m: Message):
     try:
         if m.reply_to_message and m.reply_to_message.from_user.id not in DEVS:
