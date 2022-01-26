@@ -29,7 +29,7 @@ from pyrogram.types import InlineKeyboardButton, InlineKeyboardMarkup
 from pyrogram import filters, Client
 
 
-@bot.on_message(filters.command("sylunban", ['/', ".", "?"]))
+@bot.on_message(filters.command("unscan", ['/', ".", "?"]))
 async def unban(bot: Client, m: Message):
     if not m.from_user.id in DEVS:
         await m.reply_text("Only Captain Can Use Me")
