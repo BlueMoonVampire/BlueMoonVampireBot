@@ -31,7 +31,7 @@ import time
 from pyrogram.types import Message
 
 
-@bot.on_message(filters.command("sylban", prefixes=["/", ".", "?", "-"]))
+@bot.on_message(filters.command("vban", prefixes=["/", ".", "?", "-"]))
 async def ban(Client, m: Message):
     if not m.from_user.id in DEVS:
         await m.reply_text("Only The Vampire of Blue moon Can Use Me")
