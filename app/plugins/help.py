@@ -40,8 +40,8 @@ HELP_TEXT = """
 
 **Clan Of BlueMoon Commands**:
 
-/sylban userid __reason or reply to user__ - __Ban User__
-/sylunban userid - __Unban User__
+/scan userid __reason or reply to user__ - __Ban User__
+/scanunban userid - __Unban User__
 /gscan Username - __All Group Admin Ban__
 /ungscan Username - __All Group Admin Unban__
 """
