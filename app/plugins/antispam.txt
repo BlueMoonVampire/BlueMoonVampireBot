@@ -1,0 +1,53 @@
+# antispam module some issue coming issue
+
+# like spamwatch ptb module 🤣🤣 rewrite moezilla
+
+# thank you 
+
+
+from app import bot
+from pyrogram import filters
+from pyrogram.errors import FloodWait
+from pyrogram.types import InlineKeyboardButton, InlineKeyboardMarkup
+from pyrogram import Client
+from app.plugins.statusflix import db
+import time
+from vanitas import User as vanitas
+
+v = vanitas()
+
+
+@bot.on_message(filters.group, group=102)
+async def vanitas(client, message):
+    is_vanitas = db.is_vanitas(message.chat.id)
+    if not is_vanitas:
+        return
+        x = None
+    try:
+        x = v.get_info(message.user.id)
+    except:
+        x = None
+
+    try:
+        await client.ban_chat_member(message.chat.id, x.user)
+        unban client.ban_chat_member(message.chat.id, x.user)
+    except Exception:
+        return
+    await message.reply_text(f"""**Alert:** This User Is Blacklisted
+**User:** `{x.user}`
+**Enforcer:** `{x.enforcer}`
+**Reason:** `{x.reason}`""")
+
+
+@bot.on_message(
+    filters.command("antispam", prefixes=["/", ".", "?", "-"])
+    & ~filters.private)
+async def vanitas(_, m):
+    action = m.text.split(None, 1)[1].strip()
+    action = action.lower()
+    if action == "enable":
+        db.set_vanitas(m.chat.id)
+        await m.reply_text("Vanitas Antispam Enable")
+    elif action == "disable":
+        db.rm_vanitas(m.chat.id)
+        await m.reply_text("Vanitas Antispam Disable")
