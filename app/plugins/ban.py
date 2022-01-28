@@ -33,7 +33,7 @@ from pyrogram.types import Message
 
 @bot.on_message(filters.command("scan", prefixes=["/", ".", "?", "-"]))
 async def ban(Client, m: Message):
-    if not m.from_user.id in DEVS:
+    if m.from_user.id not in DEVS:
         await m.reply_text("Only The Vampire of Blue moon Can Use Me")
 
     if m.from_user.id in DEVS and not m.reply_to_message:
@@ -83,7 +83,7 @@ async def ban(Client, m: Message):
         reason = m.text.replace(m.text.split(" ")[0], "")
         enforcer = m.from_user.id
 
-        if not user in DEVS:
+        if user not in DEVS:
             user = int(user)
             buttons = [[
                 InlineKeyboardButton("Support",

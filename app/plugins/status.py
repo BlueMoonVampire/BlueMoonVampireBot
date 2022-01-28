@@ -72,7 +72,7 @@ __The Vampire Of BlueMoon__
 @bot.on_message(filters.command("setrole"))
 def setstatus(_, m: Message):
     role = m.text.replace(m.text.split(" ")[0], "")
-    if not role == "":
+    if role != "":
         db.add_role(m.from_user.id, role)
         m.reply("Done!")
     else:

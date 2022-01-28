@@ -32,7 +32,7 @@ from pyrogram.types import Message
 
 def is_blacklisted(user):
     res = get("https://sylviorus-api.up.railway.app/user/" + str(user)).json()
-    return True if res['blacklisted'] else False
+    return bool(res['blacklisted'])
 
 
 @bot.on_message(filters.new_chat_members)
@@ -43,6 +43,3 @@ def notify(_, m: Message):
 
     elif is_blacklisted(user):
         m.reply("This User Is Blacklisted!")
-
-    else:
-        pass

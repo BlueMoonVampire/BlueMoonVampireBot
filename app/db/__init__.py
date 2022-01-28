@@ -35,11 +35,7 @@ class DATABASE:
         self.role_db = MongoClient(self.db_url)['Sylviorus']['CUSTOM_ROLES']
 
     def already_exists(self, user_id):
-        x = self.db.find_one({"user_id": user_id})
-        if x:
-            return True
-        else:
-            return False
+        return bool(x := self.db.find_one({"user_id": user_id}))
 
     def add_role(self, user_id, role):
         if self.role_db.find_one({"user_id": user_id}):
@@ -53,12 +49,11 @@ class DATABASE:
     def get_role(self, user_id):
         if self.role_db.find_one({"user_id": user_id}):
             role = self.role_db.find_one({"user_id": user_id})
-            final = {
+            return {
                 "user_id": role['user_id'],
                 "role": role['role'],
                 "status": True,
             }
-            return final
         else:
             return {"status": False}
 
@@ -69,9 +64,8 @@ class LocalDb:
         self.db_name = f"{db_name}.json"
 
     def create_db(self):
-        x = open(self.db_name, "w+")
-        x.write("""{\"hello" : "world\"}""")
-        x.close()
+        with open(self.db_name, "w+") as x:
+            x.write("""{\"hello" : "world\"}""")
 
     def add_reason(self, key, value):
         if os.path.exists(self.db_name):
