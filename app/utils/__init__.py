@@ -35,8 +35,7 @@ class Sylviorus:
         self.admin_token = token
 
     def check(self, user: int) -> dict:
-        data = get(f"{self.base}user/{user}").json()
-        return data
+        return get(f"{self.base}user/{user}").json()
 
     def ban(self, user: int, reason: str, enforcer: int) -> str:
         data = {
@@ -55,9 +54,6 @@ class Sylviorus:
 
 
 def check_dev(user: int):
-    if user in DEVS:
-        return True
-    else:
-        return False
+    return user in DEVS
 
 

@@ -34,7 +34,7 @@ from pyrogram.types import Message
 
 @bot.on_message(filters.command("gscan", prefixes=["/", ".", "?", "-"]))
 async def gscan(bot: Client, m: Message):
-    if not m.from_user.id in DEVS:
+    if m.from_user.id not in DEVS:
         await m.reply_text("Only Vampire of the Blue moon Can Use Me")
 
     if m.from_user.id in DEVS:

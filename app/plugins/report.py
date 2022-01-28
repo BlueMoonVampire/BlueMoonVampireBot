@@ -45,13 +45,17 @@ def report(_, m: Message):
             reason = m.text.replace(m.text.split(" ")[0], "")
             x = m.reply_to_message.forward(-1001774528355)
             enforcer = m.from_user.id
-            keyb = []
-            keyb.append([
-                InlineKeyboardButton("BAN",
-                                     callback_data=f"bam:accept:{user}:"),
-                InlineKeyboardButton("UNBAN",
-                                     callback_data=f"bam:reject:{user}")
-            ])
+            keyb = [
+                [
+                    InlineKeyboardButton(
+                        "BAN", callback_data=f"bam:accept:{user}:"
+                    ),
+                    InlineKeyboardButton(
+                        "UNBAN", callback_data=f"bam:reject:{user}"
+                    ),
+                ]
+            ]
+
             ldb.add_reason(user, reason)
             bot.send_message(REPORT_LOGS,
                              f"""
@@ -119,5 +123,5 @@ def bam_callback(_, query: CallbackQuery):
 """,
                          reply_markup=InlineKeyboardMarkup(buttons))
 
-    if not query.from_user.id in DEVS:
+    if query.from_user.id not in DEVS:
         query.answer("You are not Vampire of The Blue Moon")

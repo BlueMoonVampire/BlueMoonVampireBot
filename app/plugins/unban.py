@@ -31,11 +31,11 @@ from pyrogram import filters, Client
 
 @bot.on_message(filters.command("unscan", ['/', ".", "?"]))
 async def unban(bot: Client, m: Message):
-    if not m.from_user.id in DEVS:
+    if m.from_user.id not in DEVS:
         await m.reply_text("Only Captain Can Use Me")
         return
 
-    if m.from_user.id in DEVS and not m.reply_to_message:
+    if not m.reply_to_message:
         user = m.command[1]
         if not user.isdigit():
             await m.reply_text("User ID Must Be Integer")
@@ -51,7 +51,7 @@ async def unban(bot: Client, m: Message):
 
     if m.from_user.id in DEVS and m.reply_to_message:
         user = m.reply_to_message.from_user.id
-        if not user in DEVS:
+        if user not in DEVS:
             user = int(user)
             x = SYL.unban(user)
             buttons = [[
