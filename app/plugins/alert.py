@@ -75,6 +75,7 @@ def alert(_, m: Message):
         bot.send_message(m.chat.id,
                          f"""
 #ALERT
+**This User Is Blacklisted**
 **USER** : [{user}](tg://user?id={user})
 **REASON** : {x["reason"]}
 **ENFORCER** : [{x["enforcer"]}](tg://user?id={x["enforcer"]})""",
