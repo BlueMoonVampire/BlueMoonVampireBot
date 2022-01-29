@@ -7,7 +7,7 @@ from requests import get
 from ..utils import DEVS
 from pyrogram.types import InlineKeyboardButton, InlineKeyboardMarkup
 from pyrogram.types import Message
-from app.plugins.statusflix import db
+from app.plugins.status import db
 
 v = vanitas()
 
