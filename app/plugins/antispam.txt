@@ -30,7 +30,7 @@ async def vanitas(client, message):
 
     try:
         await client.ban_chat_member(message.chat.id, x.user)
-        unban client.ban_chat_member(message.chat.id, x.user)
+        await client.unban_chat_member(message.chat.id, x.user)
     except Exception:
         return
     await message.reply_text(f"""**Alert:** This User Is Blacklisted
