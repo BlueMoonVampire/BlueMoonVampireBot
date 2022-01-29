@@ -1,6 +1,6 @@
-
 from pyrogram import filters
 from vanitas import User as vanitas
+from .. import bot
 from time import time
 from pyrogram.types import ChatPermissions
 from requests import get
@@ -84,7 +84,7 @@ def mute_callback(_, query):
     filters.command("alertmode", prefixes=["/", ".", "?", "-"])
     & ~filters.private)
 async def alertmode(_, message):
-    if is_admin(message.user.id, message.chat.id):
+    if is_admin(message.chat.id, message.from_user.id):
         return
     is_vanitas = db.is_vanitas(message.chat.id)
     if not is_vanitas:
