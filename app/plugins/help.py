@@ -36,7 +36,7 @@ HELP_TEXT = """
 /help - __Help Message__
 /check userid or reply to user - __Check User__
 /setrole - __Roles Name__
-/sylreport - __Report Message__
+/report - __Report Message__
 
 **Clan Of BlueMoon Commands**:
 
@@ -44,6 +44,9 @@ HELP_TEXT = """
 /scanunban userid - __Unban User__
 /gscan Username - __All Group Admin Ban__
 /ungscan Username - __All Group Admin Unban__
+
+** Admin Commands**:
+/alertmode - __alert blacklist user__
 """
 
 
