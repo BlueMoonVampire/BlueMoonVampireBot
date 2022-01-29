@@ -57,6 +57,24 @@ class DATABASE:
         else:
             return {"status": False}
 
+     def is_vanitas(self, chat_id: int) -> bool:
+        x = self.vanitas.find_one({"chat_id": chat_id})
+        if x:
+            return True
+        return False
+
+    def set_vanitas(self, chat_id: int):
+        set_vanitas = self.is_vanitas(chat_id)
+        if set_vanitas:
+            return
+        return self.vanitas.insert_one({"chat_id": chat_id})
+
+    def rm_vanitas(self, chat_id: int):
+        rm_vanitas = self.is_vanitas(chat_id)
+        if not rm_vanitas:
+            return
+        return self.vanitas.delete_one({"chat_id": chat_id})
+
 
 class LocalDb:
 
