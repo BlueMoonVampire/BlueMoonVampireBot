@@ -6,14 +6,13 @@ from os import path
 from PIL import Image, ImageDraw, ImageFont
 from pyrogram import filters
 from vanitas import User as vanitas
-from .. import bot, SYL
+from .. import bot
 from time import time
 from pyrogram.types import ChatPermissions
 from requests import get
 from ..utils import DEVS
 from pyrogram.types import InlineKeyboardButton, InlineKeyboardMarkup
 from pyrogram.types import Message
-from app.plugins.token import db
 
 
 
