@@ -1,4 +1,10 @@
 pyrogram
+vanitas
+pillow
+aiohttp
+aiofiles
+asyncio
 requests
 tgcrypto
+pymongo
 dnspython
