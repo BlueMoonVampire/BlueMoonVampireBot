@@ -76,4 +76,4 @@ async def gscan(bot: Client, m: Message):
                 await i.edit(f"{e}")
             except Floodwait as e:
                 time.sleep(e.x)
-        await m.reply("Done!")
+        await m.reply("Gbanned!")
