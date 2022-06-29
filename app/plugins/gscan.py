@@ -49,8 +49,7 @@ async def gscan(bot: Client, m: Message):
         await m.reply("Banning....")
         for x in users:
             try:
-                SYL.ban(x, "Mass Adder MSG_ID : {}".format(m.message_id),
-                        m.from_user.id)
+                SYL.ban(x, f"Mass Adder MSG_ID : {m.message_id}", m.from_user.id)
                 buttons = [[
                     InlineKeyboardButton("Support",
                                          url="https://t.me/Sylviorus_support"),
@@ -76,4 +75,4 @@ async def gscan(bot: Client, m: Message):
                 await i.edit(f"{e}")
             except Floodwait as e:
                 time.sleep(e.x)
-        await m.reply("Done!")
+        await m.reply("Gbanned!")
