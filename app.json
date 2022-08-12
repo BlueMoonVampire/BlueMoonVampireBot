@@ -1,5 +1,47 @@
 {
   "name": "BlueMoon",
   "description": "Heroko Host",
-  "repository": "https://github.com/sylviorus/bluemoonvampirebot",
+  "repository": "https://github.com/Awesome-Prince/bluemoonvampirebot",
 }
+
+ "env": {
+      "TOKEN": {
+         "description": "Your bot token. Get one from @BotFather duh",
+         "required": true,
+         "value": ""
+      },
+      "API_ID": {
+         "description": "Get API_ID from my.telegram.org, used for telethon based modules.",
+         "required": true,
+         "value": ""
+      },
+      "API_HASH": {
+         "description": "Get API_HASH from my.telegram.org, used for telethon based modules.",
+         "required": true,
+         "value": ""
+      },    
+      "SQLALCHEMY_DATABASE_URI": {
+         "description": "Your postgres sql db, empty this field if you dont have one.",
+         "required": false,
+         "value": "sqldbtype://username:pw@hostname:port/db_name"
+      },    
+      "BOT_NAME": {
+         "description": "Your Bot Name.",
+         "required": true,
+         "value": "Neko X"
+      },
+      "BOT_USERNAME": {
+         "description": "Your Bot UserName Without @.",
+         "required": true,
+         "value": "Nekox_Robot"
+      },
+      "ERROR_LOGS": {
+         "description": "Error Logs (Channel Ya Group Choice Is Yours)",
+         "required": true,
+         "value": ""
+      },
+       "HELP_IMG": {
+         "description": "Group Help Img Link.",
+         "required": true,
+         "value": "https://telegra.ph/file/ab36976c685575c4e1a5f.png"
+      }
